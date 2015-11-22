@@ -1,0 +1,4 @@
+/.cache
+/manga_scrap.egg-info
+.idea
+*.pyc
