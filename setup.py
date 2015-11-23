@@ -13,4 +13,8 @@ setup(
         "gevent",
         "parsel",
     ],
+    test_requires=[
+        'pytest',
+        'pytest-pythonpath',
+    ]
 )
