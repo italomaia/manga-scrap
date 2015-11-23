@@ -23,7 +23,7 @@ class MangaHere(Manga):
         return [name.strip() for name in element_str.split(';')]
 
     def _fetch_page_image(self, page_url):
-        data = self.read_url(page_url)
+        data = self.read_response(page_url)
 
         sel = self.parse(data.decode('utf-8'))
         return sel.css('img#image::attr(src)').extract_first()
@@ -33,7 +33,7 @@ class MangaHere(Manga):
         return len(sel.css('select')[1].css('option'))
 
     def fetch_chapter_id_list(self, comic_url):
-        data = self.read_url(comic_url)
+        data = self.read_response(comic_url)
         sel = self.parse(data.decode('utf-8'))
         chapter_id_list = list()
 
@@ -43,7 +43,7 @@ class MangaHere(Manga):
         return chapter_id_list
 
     def fetch_chapter_image_list(self, chapter_url):
-        data = self.read_url(chapter_url)
+        data = self.read_response(chapter_url)
 
         sel = self.parse(data.decode('utf-8'))
 
@@ -66,7 +66,7 @@ class MangaHere(Manga):
                 break
 
     def fetch_comic_info(self, comic_url):
-        data = self.read_url(comic_url)
+        data = self.read_response(comic_url)
 
         cls = MangaHere
         sel = self.parse(data)
@@ -76,7 +76,7 @@ class MangaHere(Manga):
         return rs
 
     def fetch_chapter_info(self, chapter_url):
-        data = self.read_url(chapter_url)
+        data = self.read_response(chapter_url)
 
         cls = MangaHere
         sel = self.parse(data.decode('utf-8'))
